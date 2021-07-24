@@ -64,7 +64,7 @@ async def incoming_start_message_f(bot, update):
             user = await client.get_chat_member(UPDATES_CHANNEL, message.chat.id)
             if user.status == "kicked":
                 await message.reply_text(
-                    text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/linux_repo).",
+                    text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/redbullFED).",
                     parse_mode="markdown",
                     disable_web_page_preview=True
                 )
@@ -84,7 +84,7 @@ async def incoming_start_message_f(bot, update):
             return
         except Exception:
             await message.reply_text(
-                text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
+                text="Something went Wrong. Contact my [Support Group](https://t.me/redbullFED).",
                 parse_mode="markdown",
                 disable_web_page_preview=True
             )
@@ -94,12 +94,9 @@ async def incoming_start_message_f(bot, update):
         text=Localisation.START_TEXT,
         reply_markup=InlineKeyboardMarkup(
             [
-                [
-                    InlineKeyboardButton('Updates Channel', url='https://t.me/Discovery_Updates')
-                ],
-                [
-                    InlineKeyboardButton('Support Group', url='https://t.me/linux_repo')
-                ]
+                [InlineKeyboardButton("Bot Compress Status", url="t.me/MwKcompress")],
+             [InlineKeyboardButton("Updates", url="https://t.me/mwklinks"), InlineKeyboardButton("Support", url="https://t.me/redbullfed")],
+             [InlineKeyboardButton("Developer", url="https://t.me/shamilhabeeb"), InlineKeyboardButton("Other Bots", url="https://t.me/shamilnelli/6")]
             ]
         ),
         reply_to_message_id=update.message_id,
@@ -116,7 +113,7 @@ async def incoming_compress_message_f(bot, update):
             if user.status == "kicked":
                 await bot.send_message(
                     chat_id=update.chat.id,
-                    text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/linux_repo).",
+                    text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/redbullFED).",
                     parse_mode="markdown",
                     disable_web_page_preview=True
                 )
@@ -138,7 +135,7 @@ async def incoming_compress_message_f(bot, update):
         except Exception:
             await bot.send_message(
                 chat_id=update.chat.id,
-                text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
+                text="Something went Wrong. Contact my [Support Group](https://t.me/redbullFED).",
                 parse_mode="markdown",
                 disable_web_page_preview=True
             )
@@ -147,7 +144,7 @@ async def incoming_compress_message_f(bot, update):
         try:
             await bot.send_message(
                 chat_id=update.chat.id,
-                text="🤬 Reply to telegram media 🤬",
+                text="tf Reply to telegram media 🤬",
                 reply_to_message_id=update.message_id
             )
         except:
@@ -163,7 +160,7 @@ async def incoming_compress_message_f(bot, update):
                 try:
                     await bot.send_message(
                         chat_id=update.chat.id,
-                        text="🤬 Value should be 10 to 90",
+                        text="Hey unkill Value should be 10 to 90",
                         reply_to_message_id=update.message_id
                     )
                     return
@@ -446,11 +443,11 @@ async def incoming_cancel_message_f(bot, update):
     if os.path.exists(status):
         inline_keyboard = []
         ikeyboard = []
-        ikeyboard.append(InlineKeyboardButton("Yes 🚫", callback_data=("fuckingdo").encode("UTF-8")))
-        ikeyboard.append(InlineKeyboardButton("No 🤗", callback_data=("fuckoff").encode("UTF-8")))
+        ikeyboard.append(InlineKeyboardButton("Yes", callback_data=("fuckingdo").encode("UTF-8")))
+        ikeyboard.append(InlineKeyboardButton("No", callback_data=("fuckoff").encode("UTF-8")))
         inline_keyboard.append(ikeyboard)
         reply_markup = InlineKeyboardMarkup(inline_keyboard)
-        await update.reply_text("Are you sure? 🚫 This will stop the compression!", reply_markup=reply_markup,
+        await update.reply_text("Are you sure? This will stop the compression!", reply_markup=reply_markup,
                                 quote=True)
     else:
         delete_downloads()
