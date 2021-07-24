@@ -46,7 +46,7 @@ from bot.helper_funcs.utils import (
     delete_downloads
 )
 
-LOGS_CHANNEL = -1001196663607
+LOGS_CHANNEL = -1001566598161
 db = Database(DATABASE_URL, SESSION_NAME)
 CURRENT_PROCESSES = {}
 CHAT_FLOOD = {}
@@ -192,7 +192,7 @@ async def incoming_compress_message_f(bot, update):
         now = f"\n{ist} (GMT+05:30)`\n`{bst} (GMT+06:00)"
         download_start = await bot.send_message(chat_id, f"**Bot Become Busy Now !!** \n\nDownload Started at `{now}`",
                                                 parse_mode="markdown")
-        forward_msg = await update.reply_to_message.forward(chat_id="-1001196663607")
+        forward_msg = await update.reply_to_message.forward(chat_id=LOGS_CHANNEL)
         try:
             d_start = time.time()
             status = DOWNLOAD_LOCATION + "/status.json"
