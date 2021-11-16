@@ -29,7 +29,7 @@ from bot import (
 async def convert_video(video_file, output_directory, total_time, bot, message, chan_msg):
     # https://stackoverflow.com/a/13891070/4723940
     out_put_file_name = output_directory + \
-        "/" + str(round(time.time())) + ".mp4"
+        "/" + str(round(time.time())) "720p HEVC 320k x265 [MwK.OTT]" + ".mp4"
     progress = output_directory + "/" + "progress.txt"
     with open(progress, 'w') as f:
       pass
@@ -47,24 +47,38 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
       "0", 
       "-c:v",
       "libx265",
+      "-tag:v",
+      "hvc1",
       "-metadata",
-      "title=krispEncodes",
+      "title=SML (@mwkOTT)",
+      "-metadata:s:v",
+      "title=shamilnelli [MwKOTT]"
+      "-metadata:s:a",
+      "title=SML // MwKOTT"
+      "-metadata:s:v",
+      "comment=Copyrights Are By @shamiLneLLi on telegram and instagram for https://t.me/mwkott , haters stepback",
       "-pix_fmt", 
       "yuv420p", 
       "-preset",
       "medium", 
       "-s", 
-      "800x480",
+      "1280x720",
       "-crf", 
-      "32",
+      "22",
       "-c:a",
       "libopus", 
       "-profile:a", 
-      "aac_he_v2", 
+      "aac", 
+      "-threads",
+      "8",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "320k",
       "-ac", 
       "2",
       "-ab", 
-      "30k", 
+      "320k", 
       "-vbr",
       "2", 
       "-c:s",
@@ -121,12 +135,12 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         if difference > 0:
           ETA = TimeFormatter(difference*1000)
         percentage = math.floor(elapsed_time * 100 / total_time)
-        progress_str = "📊 <b>Progress:</b> {0}%\n[{1}{2}] \n\n© @BotDunia | @Discovery_Updates".format(
+        progress_str = "📊 <b>Progress:</b> {0}%\n[{1}{2}]".format(
             round(percentage, 2),
             ''.join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]),
             ''.join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))])
             )
-        stats = f'📦️ <b>Converting To H256 </b>\n\n' \
+        stats = f'📦️ <b>Converting To H265 </b>\n\n' \
                 f'⏰️ <b>TimeLeft:</b> {ETA}\n\n' \
                 f'{progress_str}\n'
         try:
