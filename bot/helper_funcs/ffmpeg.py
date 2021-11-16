@@ -59,6 +59,12 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
       "0",
       "-c:a",
       "aac",
+      "-metadata",
+      "title=@shamiLneLLi [MwK.OTT]",
+      "-c:s",
+      "copy",
+      "-metadata",
+      "title=@shamiLneLLi [MwK.OTT]",
       out_put_file_name,
     ]
 #Done !!
