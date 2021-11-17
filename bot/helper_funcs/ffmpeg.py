@@ -29,7 +29,7 @@ from bot import (
 async def convert_video(video_file, output_directory, total_time, bot, message, chan_msg):
     # https://stackoverflow.com/a/13891070/4723940
     out_put_file_name = output_directory + \
-        "/" + str(round(time.time())) + "720p.HEVC.10bit.x265-[MwK.OTT]" + ".mp4"
+        "/" + str(round(time.time())) + "720p.HEVC.10bit.x265-[CinematicWorld]" + ".mp4"
     progress = output_directory + "/" + "progress.txt"
     with open(progress, 'w') as f:
       pass
@@ -46,13 +46,17 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
       "-c:v",
       "libx265",
       "-metadata",
-      "title=@shamiLneLLi [MwK.OTT]",
+      "title=𝙰𝚜𝙷 𝚁𝚒𝚙𝚂 ~ Cinematic World",
+      "-metadata",
+      "encoded_by=𝙰𝚜𝙷 𝚁𝚒𝚙𝚂 ~ 𝕊𝕞𝕃",
+      "-metadata",
+      "comment=@shamiLneLLi Project",
       "-s",
-      "1280x720",
+      "1920x1080",
       "-vtag",
       "hvc1",
       "-preset", 
-      "medium",
+      "fast",
       "-pix_fmt",
       "yuv420p10le",
       "-threads",
@@ -60,11 +64,11 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
       "-c:a",
       "aac",
       "-metadata",
-      "title=@shamiLneLLi [MwK.OTT]",
+      "title=𝙰𝚜𝙷 𝚁𝚒𝚙𝚂 ~ Cinematic World",
       "-c:s",
       "copy",
       "-metadata",
-      "title=@shamiLneLLi [MwK.OTT]",
+      "title=𝙰𝚜𝙷 𝚁𝚒𝚙𝚂 ~ SMLx265",
       out_put_file_name,
     ]
 #Done !!
@@ -117,13 +121,13 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         if difference > 0:
           ETA = TimeFormatter(difference*1000)
         percentage = math.floor(elapsed_time * 100 / total_time)
-        progress_str = "📊 <b>Progress:</b> {0}%\n[{1}{2}]".format(
+        progress_str = "<b>Progress:</b> {0}%\n[{1}{2}]".format(
             round(percentage, 2),
             ''.join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]),
             ''.join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))])
             )
-        stats = f'📦️ <b>Converting To H265 </b>\n\n' \
-                f'⏰️ <b>TimeLeft:</b> {ETA}\n\n' \
+        stats = f'<b>Converting To HEVC 1080 </b>\n\n' \
+                f'<b>ETA:</b> {ETA}\n\n' \
                 f'{progress_str}\n'
         try:
           await message.edit_text(
